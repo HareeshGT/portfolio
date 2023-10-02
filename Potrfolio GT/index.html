@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo">Hareesh GT</div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#Projects">Project</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav id="hamburger-nav">
+        <div class="logo">Hareesh GT</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+                <li><a href="#Projects" onclick="toggleMenu()">Project</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </div>
+        </div>
+    </nav>
+    <section id="profile">
+        
+        <div class="section_pic-container">
+            <img src="assets/profile-pic.jpg" 
+            alt="My Profile Pic" 
+            class="profile-pic">
+        </div>
+
+        <div class="section_text">
+            <p class="section_text-p1">Hello, I'm </p>
+            <h1 class="title">Hareesh GT</h1>
+            <p class="section_text-p2">Student of KSRCE</p>
+
+            <div class="btn-container">
+                <button class="btn btn-color-2" onclick="window.open('./assets/resume-GT.pdf')">
+                    Download CV
+                </button>
+
+                <button class="btn btn-color-1" onclick="location.href='./#contact'">
+                    Contact Info
+                </button>
+            </div>
+
+            <div id="socials-container">
+                <img 
+                src="./assets/linkedin.png" 
+                alt="My Linkedin Profile" 
+                class="icon" 
+                onclick="location.href='https://www.linkedin.com/in/hareesh-g-t-29a558265/'"
+                >
+                <img 
+                src="./assets/github.png" 
+                alt="My GitHub Profile" 
+                class="icon" 
+                onclick="location.href='https://github.com/HareeshGT'"
+                >
+            </div>
+
+        </div>
+    </section>
+    <section id="about">
+        <p class="section_text-p1">Get To Know More</p>
+        <h1 class="title">About Me</h1>
+        <div class="section-container">
+            <div class="section_pic-container">
+                <img src="./assets/about-pic.jpg" alt="Profile Picture" class="about-pic">
+            </div>
+            <div class="about-details-container">
+                <div class="about-containers">
+                    <div class="details-container">
+                        <img src="./assets/skills.png" alt="skills-icon" class="icon" onclick="location.href='#skills'">
+                        <h2>Skills</h2>
+                        <p>Frontend Developer</p>
+                    </div>
+                    <div class="details-container">
+                        <img src="./assets/education.png" alt="Education-Icon" class="icon">
+                        <h3>Education</h3>
+                        <p>B.E/ Computer Science and Engineering</p>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <p> Myself is HAREESH GT.
+                        I'm a student of K.S.R. COLLEGE OF ENGINEERING. <br>
+                        I am flexible, reliable and possess excellent time keeping skills. <br>
+                        I am an enthusiastic, self-motivated, reliable, responsible and hard working person. <br>
+                        I am a mature team worker and adaptable to all challenging situations. <br>
+                        I am able to work well both in a team environment as well as using own initiative.</p>
+                </div>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" 
+        alt="arrow-icon" 
+        class="icon arrow" 
+        onclick="location.href='#skills'">
+    </section>
+    <section id="skills">
+        <p class="section_text-p1">Explore My</p>
+        <h1 class="title">Skills</h1>
+        <div class="skills-details-container">
+            <div class="about-containers">
+                <div class="details-container">
+                    <h2 class="skill-sub-title">Programming Languages</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
+                            <div>
+                                <h3>C</h3>
+                                <p>80%</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
+                            <div>
+                                <h3>C++</h3>
+                                <p>60%</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
+                            <div>
+                                <h3>PYTHON</h3>
+                                <p>70%</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
+                            <div>
+                                <h3>JAVA</h3>
+                                <p>80%</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
+                            <div>
+                                <h3>MY SQL</h3>
+                                <p>80%</p>
+                            </div>
+                        </article>
+                        
+                    </div>
+                </div>
+                <div class="details-container">
+                    <h2 class="skill-sub-title">Frontend Development</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
+                            <div>
+                                <h3>HTML</h3>
+                                <p>80%</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
+                            <div>
+                                <h3>CSS</h3>
+                                <p>60%</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" 
+        alt="arrow-icon" 
+        class="icon arrow" 
+        onclick="location.href='#Projects'">
+    </section>
+
+    <section id="Projects">
+        <p class="section_text-p1">Browse My Recent</p>
+        <h1 class="title">Project</h1>
+        <div class="skills-details-container">
+            <div class="about-containers">
+                <div class="details-container color-container">
+                    <div class="article-container">
+                        <img src="./assets/project-1.png"
+                        alt="Project-1" 
+                        class="project-img"
+                        >
+                    </div>
+                    <h2 class="skill-sub-title">KSRCE Login Page</h2>
+                    <div class="btn-container">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/HareeshGT/project/tree/main/'">
+                            GitHub
+                        </button>
+                        <button class="btn btn-color-1 project-btn" onclick="location.href='https://hareeshgt.github.io/project/KSRCELOGIN/'">
+                            Live Demo
+                        </button>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <img src="./assets/arrow.png" 
+        alt="arrow-icon" 
+        class="icon arrow" 
+        onclick="location.href='#contact'">
+    </section>
+
+    <section id="contact">
+        <p class="section_text-p1">Get In Touch</p>
+        <h1 class="title">Contact Me</h1>
+        <div class="contact-info-upper-container">
+            <div class="contact-info-container">
+                <img src="./assets/email.png" alt="Email-icon" class="icon contact-icon email-icon">
+                <p><a href="mailto:hareeshgt7@gmail.com">Email</a></p>
+            </div>
+            <div class="contact-info-container">
+                <img src="./assets/linkedin.png" alt="LinkedIn-icon" class="icon contact-icon">
+                <p><a href="https://www.linkedin.com/in/hareesh-g-t-29a558265/">LinkedIn</a></p>
+            </div>
+        </div>
+        
+    </section>
+
+    <footer>
+        <nav>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#Projects">Project</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <p>Copyright &#169; 2023 Hareesh GT, All Rights Reserved</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
