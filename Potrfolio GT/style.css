@@ -12,11 +12,6 @@ body
     font-family: 'Poppins', sans-serif;
 }
 
-button
-{
-    font-family: inherit;
-}
-
 .arrow
 {
     position: absolute;
@@ -243,12 +238,6 @@ section
     font-size: 3rem;
     text-align: center;
 }
-
-#about .title
-{
-    margin-bottom: 5rem;
-}
-
 #socials-container
 {
     display: flex;
@@ -287,6 +276,7 @@ section
     display: flex;
     justify-content: center;
     gap: 1rem;
+    
 }
 
 .btn
@@ -296,6 +286,7 @@ section
     padding: 1rem;
     width: 8rem;
     border-radius: 2rem;
+    font-family: inherit;
 }
 
 .btn-color-1,.btn-color-2
@@ -337,7 +328,7 @@ section
 #about
 {
     position: relative;
-    padding: 15rem;
+
 }
 
 .about-containers
@@ -361,8 +352,6 @@ section
 .about-pic
 {
     border-radius: 2rem;
-    height: 500px;
-    width: 400px;
 }
 
 
@@ -395,8 +384,6 @@ section
 #skills
 {
     position: relative;
-    padding: 20rem;
-    margin-top: 0 auto;
 }
 
 .skill-sub-title
@@ -419,8 +406,14 @@ section
     text-align: initial;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 2.5rem;
+    gap: 3rem;
     justify-content: space-around;
+}
+#skills .about-containers
+{
+   width: 70%;
+   position: relative;
+   left: 15%;
 }
 
 article
@@ -440,33 +433,28 @@ article .icon
 #Projects
 {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
     position: relative;
-    width: 85%;
+    width: 77%;
     height: 50%;
 }
+
+
 
 .color-container
 {
     border-color: rgb(163, 163, 163) ;
-    background: rgb(250, 250, 250);
-    width: 20%;
-}
-
-#Projects .article-container
-{
-    width: 25rem;
-    height: 25rem;
+    background-color: rgb(250, 250, 250);
+    width: 30rem;
 }
 
 .project-img
 {
     border-radius: 2rem;
-    width: 50%;
-    height: 70%;
-    padding: 20px;
+    width: 40%;
+    height: 60%;
+    
 }
 
 .project-title
@@ -477,26 +465,10 @@ article .icon
 
 .project-btn
 {
-    color: black;
+    
     border-color: rgb(163, 163, 163);
 }
 
-.article-container article:nth-child(3)
-{
-    position: relative;
-    right: -0.65rem;
-}
-.article-container article:nth-child(4)
-{
-    position: relative;
-    right: -0.17rem;
-}
-
-.article-container article:nth-child(5)
-{
-    position: relative;
-    right: -0.65rem;
-}
 
 #contact
 {
@@ -513,9 +485,9 @@ article .icon
     border-radius: 2rem;
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);
-    background: (250, 250, 250);
+    background-color: rgb(250, 250, 250);
     margin: 2rem auto;
-    padding: 0.5rem7;
+    padding: 0.5rem;
 }
 
 .contact-info-container
@@ -543,9 +515,7 @@ article .icon
 
 footer
 {
-    height: 26uh;
-    margin: 0 1rem;
-    margin-bottom: 2rem;
+    margin: 2rem;
 }
 
 footer p
