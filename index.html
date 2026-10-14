@@ -1,291 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hareesh GT | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaqueries.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hareesh GT — DevOps Engineer</title>
+  <meta name="description" content="Portfolio of Hareesh GT, a devops engineer building Python desktop apps and cloud infrastructure tooling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <nav id="desktop-nav">
-        <div class="logo">Hareesh GT</div>
-        <div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#Projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+  <div class="progress" id="progress"></div>
+
+  <header class="nav" id="nav">
+    <a href="#home" class="logo">hareesh<span>.gt</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <nav class="links" id="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">◐</button>
     </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">Hareesh GT</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-            <ul class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
-                <li><a href="#Projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow reveal">Hello, I'm</p>
+          <h1 class="reveal">Hareesh GT</h1>
+          <p class="role reveal">
+            <span id="typed"></span><span class="caret">|</span>
+          </p>
+          <p class="lead reveal">
+            I build Python desktop applications and cloud infrastructure tooling —
+            software that turns scattered terminals, dashboards and file managers
+            into one calm workspace.
+          </p>
+          <div class="cta reveal">
+            <a href="#projects" class="btn primary">View projects</a>
+            <a href="https://github.com/HareeshGT" target="_blank" rel="noopener" class="btn ghost">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="terminal reveal" aria-hidden="true">
+          <div class="term-bar">
+            <i></i><i></i><i></i>
+            <span>kubedock — zsh</span>
+          </div>
+          <pre class="term-body" id="termBody"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title reveal"><span>01</span> About</h2>
+        <div class="about-grid">
+          <div class="reveal">
+            <p>
+              I'm a devops engineer who enjoys building tools that make
+              infrastructure work feel simple. Most of my recent work is in
+              Python — desktop apps built with PyQt, SSH and SFTP automation,
+              and Kubernetes and AWS tooling.
+            </p>
+            <p>
+              My main project, <strong>KubeDock</strong>, brings EC2, SSH, remote
+              files, Kubernetes and an AI ops assistant into a single desktop
+              application — developed primarily on macOS, with over 250 commits
+              and counting.
+            </p>
+            <p>
+              I started with Java console projects and web front-ends, and I
+              still enjoy working across the stack, from a themed Qt interface
+              to a mobile-friendly web dashboard.
+            </p>
+          </div>
+          <div class="stats reveal">
+            <div class="stat"><b data-count="10">0</b><span>Public repos</span></div>
+            <div class="stat"><b data-count="254">0</b><span>KubeDock commits</span></div>
+            <div class="stat"><b data-count="29">0</b><span>Python modules in KubeDock</span></div>
+            <div class="stat"><b data-count="3">0</b><span>Languages on GitHub</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section alt" id="projects">
+      <div class="container">
+        <h2 class="section-title reveal"><span>02</span> Projects</h2>
+
+        <article class="featured reveal">
+          <div class="featured-body">
+            <p class="tag">Featured · Python · MIT License</p>
+            <h3>KubeDock</h3>
+            <p>
+              A desktop control center for AWS EC2, Kubernetes, SSH, SFTP, FTP
+              and remote files. Manage infrastructure from one application
+              instead of juggling terminals, SSH clients and dashboards.
+            </p>
+            <ul class="feature-list">
+              <li>Integrated SSH terminal and a Finder-style remote file manager with sudo filesystem access</li>
+              <li>Kubernetes dashboard: pods, deployments, services, events, live logs, exec and port forwarding</li>
+              <li>Direct streaming of remote video and audio over SSH/SFTP or FTP, with no download</li>
+              <li>Embedded FastAPI web app for monitoring and operating clusters from a phone</li>
+              <li>AI-assisted troubleshooting, PIN app lock (PBKDF2-SHA256) and a multi-theme UI</li>
             </ul>
-        </div>
-    </nav>
-    <section id="profile">
-        
-        <div class="section_pic-container">
-            <img src="assets/profile-pic.jpg" 
-            alt="My Profile Pic" 
-            class="profile-pic">
-        </div>
-
-        <div class="section_text">
-            <p class="section_text-p1">Hello, I'm </p>
-            <h1 class="title">Hareesh GT</h1>
-            <p class="section_text-p2">DevOps Engineer & CS Student</p>
-
-            <div class="btn-container">
-                <button class="btn btn-color-2" onclick="window.open('./assets/single page main.pdf')">
-                    Download CV
-                </button>
-
-                <button class="btn btn-color-1" onclick="location.href='./#contact'">
-                    Contact Info
-                </button>
+            <div class="chips">
+              <span>Python</span><span>PyQt</span><span>Paramiko</span><span>FastAPI</span>
+              <span>Kubernetes</span><span>AWS</span>
             </div>
+            <p class="live" id="featuredMeta" hidden></p>
+            <a class="link" href="https://github.com/HareeshGT/KubeDock" target="_blank" rel="noopener" id="featuredLink">View on GitHub ↗</a>
+          </div>
+          <div class="featured-art" aria-hidden="true">
+            <div class="mock">
+              <div class="mock-side"><i></i><i></i><i></i><i></i></div>
+              <div class="mock-main">
+                <div class="mock-row"><b></b><b></b><b></b></div>
+                <div class="mock-card"><u class="ok"></u><u class="ok"></u><u class="warn"></u><u class="ok"></u><u class="err"></u><u class="ok"></u></div>
+                <div class="mock-log"></div>
+              </div>
+            </div>
+          </div>
+        </article>
 
-            <div id="socials-container">
-                <img 
-                src="./assets/linkedin.png" 
-                alt="My Linkedin Profile" 
-                class="icon" 
-                onclick="location.href='https://www.linkedin.com/in/hareesh-g-t-29a558265/'"
-                >
-                <img 
-                src="./assets/github.png" 
-                alt="My GitHub Profile" 
-                class="icon" 
-                onclick="location.href='https://github.com/HareeshGT'"
-                >
-            </div>
-
+        <div class="cards" id="repoCards" aria-live="polite">
+          <article class="card reveal">
+            <p class="tag">Java</p>
+            <h3>Console Type Projects</h3>
+            <p>A collection of console-based Java programs, starting with a bank application.</p>
+            <a class="link" href="https://github.com/HareeshGT/ConsoleTypeProjects" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </article>
+          <article class="card reveal">
+            <p class="tag">HTML</p>
+            <h3>Front-end Mini Projects</h3>
+            <p>A set of small web builds, including a menu bar, a mini calendar, a movie app and a login page.</p>
+            <a class="link" href="https://github.com/HareeshGT/project" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </article>
+          <article class="card reveal">
+            <p class="tag">Learning</p>
+            <h3>ElearnVC</h3>
+            <p>A repository of video lessons organised into topic series, such as arrays, control statements, exception handling and introductions.</p>
+            <a class="link" href="https://github.com/HareeshGT/ElearnVC" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </article>
+          <article class="card reveal">
+            <p class="tag">Practice</p>
+            <h3>LeetCode</h3>
+            <p>My problem-solving practice and solutions, kept in version control.</p>
+            <a class="link" href="https://github.com/HareeshGT/LeetCode" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </article>
         </div>
-    </section>
-    <section id="about">
-        <p class="section_text-p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-            <div class="section_pic-container">
-                <img src="./assets/about-pic.jpg" alt="Profile Picture" class="about-pic">
-            </div>
-            <div class="about-details-container">
-                <div class="about-containers">
-                    <div class="details-container">
-                        <img src="./assets/skills.png" alt="skills-icon" class="icon" onclick="location.href='#skills'">
-                        <h2>Skills</h2>
-                        <p>DevOps Engineer</p>
-                    </div>
-                    <div class="details-container">
-                        <img src="./assets/education.png" alt="Education-Icon" class="icon">
-                        <h2>Education</h2>
-                        <p>B.E / Computer Science and Engineering</p>
-                    </div>
-                </div>
-                <div class="text-container">
-                    <p>I'm Hareesh GT, a Computer Science and Engineering student at K.S.R. College of Engineering.
-                        I'm a flexible, reliable and dedicated individual with excellent time management skills. <br>
-                        An enthusiastic and self-motivated team player, I adapt well to challenging situations and
-                        thrive both in collaborative environments and when working independently.</p>
-                </div>
-            </div>
-        </div>
-        <img src="./assets/arrow.png" 
-        alt="arrow-icon" 
-        class="icon arrow" 
-        onclick="location.href='#skills'">
-    </section>
-    <section id="skills">
-        <p class="section_text-p1">Explore My</p>
-        <h1 class="title">Skills</h1>
-        <div class="skills-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <h2 class="skill-sub-title">Programming Languages</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
-                            <div>
-                                <h3>C</h3>
-                                <p>80%</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
-                            <div>
-                                <h3>C++</h3>
-                                <p>60%</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
-                            <div>
-                                <h3>Python</h3>
-                                <p>70%</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
-                            <div>
-                                <h3>Java</h3>
-                                <p>80%</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
-                            <div>
-                                <h3>MySQL</h3>
-                                <p>80%</p>
-                            </div>
-                        </article>
-                        
-                    </div>
-                </div>
-                <div class="details-container">
-                    <h2 class="skill-sub-title">Frontend Development</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
-                            <div>
-                                <h3>HTML</h3>
-                                <p>80%</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Skills icon" class="icon">
-                            <div>
-                                <h3>CSS</h3>
-                                <p>60%</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img src="./assets/arrow.png" 
-        alt="arrow-icon" 
-        class="icon arrow" 
-        onclick="location.href='#Projects'">
+        <p class="sync" id="syncNote"></p>
+      </div>
     </section>
 
-    <section id="Projects">
-        <p class="section_text-p1">Browse My Recent</p>
-        <h1 class="title">Projects</h1>
-        <div class="skills-details-container">
-            <div class="about-containers">
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/project-1.png"
-                        alt="Project-1" 
-                        class="project-img"
-                        >
-                    </div>
-                    <h2 class="skill-sub-title">KSRCE Login Page</h2>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/HareeshGT/project/tree/main/'">
-                            GitHub
-                        </button>
-                        <button class="btn btn-color-1 project-btn" onclick="location.href='https://hareeshgt.github.io/project/KSRCELOGIN/'">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
-               
-            </div>
-            <div class="about-containers">
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/project-2.png"
-                        alt="Project-2" 
-                        class="project-img"
-                        >
-                    </div>
-                    <h2 class="skill-sub-title">Java Learning Website</h2>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/HareeshGT/project/tree/main/'">
-                            GitHub
-                        </button>
-                        <button class="btn btn-color-1 project-btn" onclick="location.href='https://hareeshgt.github.io/project/JLW/'">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
-               
-            </div>
-            <div class="about-containers">
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/project-3.png"
-                        alt="project-3" 
-                        class="project-img"
-                        >
-                    </div>
-                    <h2 class="skill-sub-title">Movie App</h2>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/HareeshGT/project/tree/main/'">
-                            GitHub
-                        </button>
-                        <button class="btn btn-color-1 project-btn" onclick="location.href='https://hareeshgt.github.io/project/movie app/'">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
-               
-            </div>
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title reveal"><span>03</span> Skills</h2>
+        <div class="skill-grid">
+          <div class="skill reveal">
+            <h3>Languages</h3>
+            <div class="chips"><span>Python</span><span>Java</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Shell</span></div>
+          </div>
+          <div class="skill reveal">
+            <h3>Desktop &amp; Backend</h3>
+            <div class="chips"><span>PyQt / Qt</span><span>Paramiko</span><span>FastAPI</span><span>Uvicorn</span></div>
+          </div>
+          <div class="skill reveal">
+            <h3>Cloud &amp; DevOps</h3>
+            <div class="chips"><span>AWS EC2</span><span>Kubernetes</span><span>kubectl</span><span>SSH / SFTP / FTP</span><span>Git &amp; GitHub</span></div>
+          </div>
+          <div class="skill reveal">
+            <h3>Practices</h3>
+            <div class="chips"><span>Modular architecture</span><span>Application security</span><span>Theming &amp; UI design</span><span>macOS packaging</span></div>
+          </div>
         </div>
-        <img src="./assets/arrow.png" 
-        alt="arrow-icon" 
-        class="icon arrow" 
-        onclick="location.href='#contact'">
+      </div>
     </section>
 
-    <section id="contact">
-        <p class="section_text-p1">Get In Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img src="./assets/email.png" alt="Email-icon" class="icon contact-icon email-icon">
-                <p><a href="mailto:hareeshgt7@gmail.com">Email</a></p>
-            </div>
-            <div class="contact-info-container">
-                <img src="./assets/linkedin.png" alt="LinkedIn-icon" class="icon contact-icon">
-                <p><a href="https://www.linkedin.com/in/hareesh-g-t-29a558265/">LinkedIn</a></p>
-            </div>
-            <div class="contact-info-container">
-                <img src="./assets/insta-icon.webp" alt="insta-icon" class="icon contact-icon">
-                <p><a href="https://www.instagram.com/__.hxreesh_/">Instagram</a></p>
-            </div>
+    <!-- CONTACT -->
+    <section class="section alt" id="contact">
+      <div class="container contact">
+        <h2 class="section-title reveal"><span>04</span> Contact</h2>
+        <p class="lead reveal">
+          Interested in working together, or just want to talk infrastructure
+          tooling? Reach out on LinkedIn or take a look at my code on GitHub.
+        </p>
+        <div class="cta reveal">
+          <a class="btn primary" href="https://www.linkedin.com/in/hareesh-gt/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn ghost" href="https://github.com/HareeshGT" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
-        
+      </div>
     </section>
+  </main>
 
-    <footer>
-        <nav>
-            <div class="nav-links-container">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#Projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-        <p>Copyright &#169; 2026 Hareesh GT, All Rights Reserved</p>
-    </footer>
-    <script src="script.js"></script>
+  <footer class="footer">
+    <p>© <span id="year"></span> Hareesh GT · Built with HTML, CSS &amp; JavaScript</p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
