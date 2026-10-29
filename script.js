@@ -221,6 +221,25 @@
     a.target = "_blank";
     a.rel = "noopener";
     card.appendChild(a);
+
+    // Show a live website link only when the repository has a homepage configured.
+    var website = (r.homepage || "").trim();
+    if (website) {
+      if (!/^https?:\/\//i.test(website)) website = "https://" + website;
+      try {
+        var parsedWebsite = new URL(website);
+        if (parsedWebsite.protocol === "https:" || parsedWebsite.protocol === "http:") {
+          var siteLink = el("a", "link", "Visit Website ↗");
+          siteLink.href = parsedWebsite.href;
+          siteLink.target = "_blank";
+          siteLink.rel = "noopener noreferrer";
+          siteLink.style.marginLeft = "1rem";
+          card.appendChild(siteLink);
+        }
+      } catch (e) {
+        // Ignore invalid homepage values; keep the GitHub link available.
+      }
+    }
     return card;
   }
 
@@ -232,6 +251,37 @@
     if (feat && featMeta) {
       featMeta.textContent = metaText(feat);
       featMeta.hidden = false;
+    }
+
+    // The featured project's website is optional and comes from GitHub's Homepage field.
+    var featuredLink = document.getElementById("featuredLink");
+    if (featuredLink && feat) {
+      var featuredWebsite = (feat.homepage || "").trim();
+      if (featuredWebsite) {
+        if (!/^https?:\/\//i.test(featuredWebsite)) featuredWebsite = "https://" + featuredWebsite;
+        try {
+          var parsedFeaturedWebsite = new URL(featuredWebsite);
+          if (parsedFeaturedWebsite.protocol === "https:" || parsedFeaturedWebsite.protocol === "http:") {
+            var siteLink = document.getElementById("featuredWebsiteLink");
+            if (!siteLink) {
+              siteLink = el("a", "link", "Visit Website ↗");
+              siteLink.id = "featuredWebsiteLink";
+              siteLink.target = "_blank";
+              siteLink.rel = "noopener noreferrer";
+              siteLink.style.marginLeft = "1rem";
+              featuredLink.insertAdjacentElement("afterend", siteLink);
+            }
+            siteLink.href = parsedFeaturedWebsite.href;
+            siteLink.hidden = false;
+          }
+        } catch (e) {
+          var invalidSiteLink = document.getElementById("featuredWebsiteLink");
+          if (invalidSiteLink) invalidSiteLink.hidden = true;
+        }
+      } else {
+        var absentSiteLink = document.getElementById("featuredWebsiteLink");
+        if (absentSiteLink) absentSiteLink.hidden = true;
+      }
     }
 
     // project grid
