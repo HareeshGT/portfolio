@@ -151,7 +151,7 @@
   var FEATURED = "kubedock";                 // shown in the featured block, skipped in the grid
   var HIDDEN = ["portfolio", GH_USER.toLowerCase()]; // this site's own repo and the profile README repo
   var MAX_CARDS = 8;
-  var CACHE_KEY = "gh-repos-v1";
+  var CACHE_KEY = "gh-repos-v2"; // Refresh cached repo metadata so newly added homepage URLs appear immediately.
   var CACHE_TTL = 30 * 60 * 1000;            // 30 minutes, keeps us well inside the 60 req/hr anonymous limit
 
   // Optional hand-written text for repos that have no GitHub description yet.
