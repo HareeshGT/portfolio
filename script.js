@@ -57,7 +57,7 @@
   /* ---------- typing effect ---------- */
   var roles = [
     "DevOps Engineer",
-    "Python Developer",
+    "DevOps Engineer",
     "Cloud & Kubernetes Specialist"
   ];
   var typed = document.getElementById("typed");
