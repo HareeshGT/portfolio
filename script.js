@@ -336,6 +336,134 @@
   }
   syncGitHub();
 
+
+  /* ---------- ambient particles + pointer lighting ---------- */
+  if (!reduceMotion) {
+    var canvas = document.createElement("canvas");
+    canvas.id = "ambient-canvas";
+    canvas.setAttribute("aria-hidden", "true");
+    document.body.prepend(canvas);
+    var ctx = canvas.getContext("2d");
+    var particles = [];
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.6);
+    var pointer = { x: -1000, y: -1000 };
+    var particleCount = window.innerWidth < 700 ? 28 : 54;
+
+    function resizeCanvas() {
+      canvas.width = Math.floor(window.innerWidth * dpr);
+      canvas.height = Math.floor(window.innerHeight * dpr);
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function seedParticles() {
+      particles = [];
+      for (var p = 0; p < particleCount; p++) {
+        particles.push({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          r: Math.random() * 1.5 + .45,
+          vx: (Math.random() - .5) * .22,
+          vy: (Math.random() - .5) * .22,
+          alpha: Math.random() * .42 + .12
+        });
+      }
+    }
+    resizeCanvas();
+    seedParticles();
+    window.addEventListener("resize", function () {
+      resizeCanvas();
+      particleCount = window.innerWidth < 700 ? 28 : 54;
+      seedParticles();
+    }, { passive: true });
+    window.addEventListener("pointermove", function (e) {
+      pointer.x = e.clientX;
+      pointer.y = e.clientY;
+    }, { passive: true });
+
+    var frame = 0;
+    function drawAmbient() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      var dark = root.getAttribute("data-theme") !== "light";
+      var color = dark ? "124,92,255" : "91,61,245";
+      particles.forEach(function (a, i) {
+        a.x += a.vx;
+        a.y += a.vy;
+        if (a.x < -10) a.x = window.innerWidth + 10;
+        if (a.x > window.innerWidth + 10) a.x = -10;
+        if (a.y < -10) a.y = window.innerHeight + 10;
+        if (a.y > window.innerHeight + 10) a.y = -10;
+
+        var dx = pointer.x - a.x, dy = pointer.y - a.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 115 && dist > 0) {
+          a.x -= dx / dist * .22;
+          a.y -= dy / dist * .22;
+        }
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(" + color + "," + a.alpha + ")";
+        ctx.fill();
+
+        for (var j = i + 1; j < particles.length; j++) {
+          var b = particles[j];
+          var lx = a.x - b.x, ly = a.y - b.y;
+          var d = Math.sqrt(lx * lx + ly * ly);
+          if (d < 105) {
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = "rgba(" + color + "," + ((1 - d / 105) * .12) + ")";
+            ctx.lineWidth = .7;
+            ctx.stroke();
+          }
+        }
+      });
+      frame = window.requestAnimationFrame(drawAmbient);
+    }
+    drawAmbient();
+
+    // A soft spotlight follows the pointer on devices with a mouse.
+    if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+      var spotlight = document.createElement("div");
+      spotlight.className = "cursor-glow";
+      spotlight.setAttribute("aria-hidden", "true");
+      document.body.appendChild(spotlight);
+      window.addEventListener("pointermove", function (e) {
+        spotlight.style.left = e.clientX + "px";
+        spotlight.style.top = e.clientY + "px";
+      }, { passive: true });
+      document.addEventListener("pointerleave", function () {
+        spotlight.style.opacity = "0";
+      });
+      document.addEventListener("pointerenter", function () {
+        spotlight.style.opacity = ".8";
+      });
+    }
+  }
+
+  /* ---------- subtle pointer tilt / spotlight on cards ---------- */
+  if (!reduceMotion && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    document.addEventListener("pointermove", function (event) {
+      var target = event.target.closest(".card, .stat, .skill, .featured");
+      if (!target) return;
+      var rect = target.getBoundingClientRect();
+      var x = event.clientX - rect.left;
+      var y = event.clientY - rect.top;
+      target.style.setProperty("--mx", x + "px");
+      target.style.setProperty("--my", y + "px");
+      if (target.classList.contains("card")) {
+        var rx = ((y / rect.height) - .5) * -3.5;
+        var ry = ((x / rect.width) - .5) * 5;
+        target.style.transform = "perspective(850px) translateY(-6px) rotateX(" + rx + "deg) rotateY(" + ry + "deg)";
+      }
+    }, { passive: true });
+    document.addEventListener("pointerout", function (event) {
+      var card = event.target.closest && event.target.closest(".card");
+      if (card && !card.contains(event.relatedTarget)) card.style.transform = "";
+    });
+  }
+
   /* ---------- footer year ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
 })();
